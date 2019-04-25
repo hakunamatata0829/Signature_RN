@@ -1,1 +1,1 @@
-Init
+React Native Signature App
