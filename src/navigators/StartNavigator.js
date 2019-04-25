@@ -23,6 +23,7 @@ import DrawingOnPadPage from "@views/Signature/DrawingOnPadPage";
 import DrawingSignPage from "@views/Signature/DrawingSignPage";
 import CameraPage from "@views/Signature/CameraPage";
 import CameraCapturePage from "@views/Signature/CameraCapturePage";
+import CameraPhotoAdjustPage from "@views/Signature/CameraPhotoAdjustPage";
 import UploadSignaturePage from "@views/Signature/UploadSignaturePage";
 import CertulIdScanPage from "@views/Signature/CertulIdScanPage";
 import CertulFormPage from "@views/Signature/CertulFormPage";
@@ -52,6 +53,7 @@ const StartNavigator = createStackNavigator({
   DrawingSignPage: { screen: DrawingSignPage },
   CameraPage: { screen: CameraPage },
   CameraCapturePage: { screen: CameraCapturePage },
+  CameraPhotoAdjustPage: { screen: CameraPhotoAdjustPage },
   UploadSignaturePage: { screen: UploadSignaturePage },
   CertulIdScanPage: { screen: CertulIdScanPage },
   CertulFormPage: { screen: CertulFormPage },

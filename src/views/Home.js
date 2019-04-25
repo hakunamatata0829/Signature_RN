@@ -23,7 +23,10 @@ class Home extends React.Component {
           justifyContent: "center",
         }}
       >
-        <Text>{t("Home")}</Text>
+        <Text>
+          {t("Home")}
+          {this.props.navigation.getParam("captureImage")}
+        </Text>
         <Button
           mode="contained"
           dark={true}
@@ -51,7 +54,7 @@ class Home extends React.Component {
         >
           Certul Step
         </Button>
-        <Button
+        {/* <Button
           icon="folder"
           mode="contained"
           dark={true}
@@ -59,7 +62,7 @@ class Home extends React.Component {
           onPress={() => this.props.navigation.navigate("CameraPage")}
         >
           TEST
-        </Button>
+        </Button> */}
       </View>
     );
   }

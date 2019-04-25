@@ -1,24 +1,19 @@
 import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { Banner } from "react-native-paper";
-import { ButtonAction } from "@themes";
 import { withNamespaces } from "react-i18next";
 import {
-  Container,
   Icon,
   List,
   ListItem,
-  Thumbnail,
   Text,
   Left,
-  Body,
-  Right,
-  Button,
+  Body
 } from "native-base";
 
 import styles from "../../themes/styles";
 
-class SelectEasySignaturePage extends React.Component {
+class EasySignatureSelectPage extends React.Component {
   state = {
     visible: true,
   };
@@ -28,7 +23,11 @@ class SelectEasySignaturePage extends React.Component {
       headerStyle: styles.headerStyle,
       headerTitleStyle: styles.headerTitleStyle,
       headerTintColor: "#fff",
-      headerRight: styles.headerRight,
+      headerRight: (<
+        Icon name={'notifications'}
+        style={ styles.headerRightIcon }
+      />
+      ),
     };
   };
 
@@ -40,12 +39,7 @@ class SelectEasySignaturePage extends React.Component {
     const { t } = this.props;
 
     return (
-      <View
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      >
+      <View style={styles.fullView} >
         <Banner
           visible={this.state.visible}
           actions={[
@@ -84,7 +78,7 @@ class SelectEasySignaturePage extends React.Component {
             <View style={styles.touchable_view_others}>
               <List>
                 <ListItem thumbnail
-                  onPress={() => this.props.navigation.navigate("EasySignaturePage2")}>
+                  onPress={() => this.props.navigation.navigate("DrawingOnPadPage")}>
                   <Left>
                     <Icon type="MaterialIcons" name="brush" style={styles.left_icon} />
                   </Left>
@@ -102,7 +96,7 @@ class SelectEasySignaturePage extends React.Component {
           <TouchableOpacity >
             <View style={styles.touchable_view_others}>
               <List>
-                <ListItem thumbnail onPress={() => this.props.navigation.navigate("EasySignaturePage2")}>
+                <ListItem thumbnail onPress={() => this.props.navigation.navigate("CameraPage")}>
                   <Left>
                     <Icon type="FontAwesome" name="camera" style={styles.left_icon} />
                   </Left>
@@ -120,7 +114,7 @@ class SelectEasySignaturePage extends React.Component {
           <TouchableOpacity>
             <View style={styles.touchable_view_others}>
               <List>
-                <ListItem thumbnail onPress={() => this.props.navigation.navigate("EasySignaturePage2")}>
+                <ListItem thumbnail onPress={() => this.props.navigation.navigate("UploadSignaturePage")}>
                   <Left>
                     <Icon type="FontAwesome5" name="cloud-upload-alt" style={styles.left_icon} />
                   </Left>
@@ -137,4 +131,4 @@ class SelectEasySignaturePage extends React.Component {
     );
   }
 }
-export default withNamespaces()(SelectEasySignaturePage);
+export default withNamespaces()(EasySignatureSelectPage);

@@ -5,7 +5,7 @@ import { ButtonAction } from "@themes";
 import { withNamespaces } from "react-i18next";
 import Styles from '../../themes/styles';
 
-class AccountPage extends React.Component {
+class CertulFormPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,22 +35,11 @@ class AccountPage extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: "Certul Certification",
-      headerStyle: {
-        backgroundColor: '#2372D8',
-      },
-      headerTitleStyle: {
-        fontFamily: 'Roboto',
-        fontStyle: 'normal',
-        fontWeight: '500',
-        fontSize: 20,
-        lineHeight: 28,
-        color: '#fff',
-        textAlign: "center",
-        flex: 1
-      },
+      headerStyle: Styles.headerStyle,
+      headerTitleStyle: Styles.headerTitleStyle,
       headerTintColor: '#fff',
       headerRight: (
-        <Icon name={'notifications'} style={{ color: '#fff', paddingRight: 10 }} size={25} />
+        <Icon name={'notifications'} style={Styles.headerRightIcon} size={25} />
       ),
     };
   };
@@ -64,11 +53,9 @@ class AccountPage extends React.Component {
     const { t } = this.props;
 
     return (
-      <ScrollView style={{
-        width: '100%'
-      }}>
+      <ScrollView style={Styles.fullWidth}>
 
-        <View style={{ marginHorizontal: 42, marginVertical: 26 }}>
+        <View style={Styles.ContainerPadding42_26}>
           <View
             style={Styles.viewCenterFullRange} >
             <View style={{ alignItems: 'center' }} >
@@ -135,4 +122,4 @@ class AccountPage extends React.Component {
     );
   }
 }
-export default withNamespaces()(AccountPage);
+export default withNamespaces()(CertulFormPage);

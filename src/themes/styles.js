@@ -23,6 +23,24 @@ export default StyleSheet.create({
     paddingRight: 18
   },
 
+  headerLeftIcon:{
+    color: '#fff',
+    paddingLeft: 18
+  },
+
+  fullView:{
+    width: '100%',
+    height: '100%'
+  },
+
+  fullWidth:{
+    width: '100%'
+  },
+
+  fullHeight:{
+    height: '100%'
+  },
+
   bannerText: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
@@ -236,6 +254,32 @@ export default StyleSheet.create({
     color: '#0048A7',
   },
 
+  captureBtn:{
+    alignSelf: 'center',
+    width: 115,
+    height: 40,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    marginTop: 29,
+  },
+
+  captureTxt:{
+    fontFamily: 'Roboto',
+    fontSize: 11,
+    color: '#FF5722',
+    fontWeight: '500'
+  },
+
+  saveBtn96:{
+    alignSelf: 'flex-end',
+    width: 96,
+    height: 40,
+    backgroundColor: '#FF5722',
+    marginTop: 65,
+    marginRight: 20,
+    marginBottom: 23
+  },
+
   //SignatureAcceptPage
   blueBorderedAcceptView: {
     margin: 12,
@@ -270,6 +314,11 @@ export default StyleSheet.create({
     marginTop: 15,
   },
 
+  iconGreen:{
+    color: '#149100',
+    fontSize: 15
+  },
+
   //CertulFormPage
   viewCenterRange76_94: {
     flex: 0,
@@ -292,6 +341,11 @@ export default StyleSheet.create({
     paddingLeft: 4,
     paddingTop: 4,
     borderColor: '#DADADA',
+  },
+
+  iconBlue25:{
+    color: '#0048A7',
+    fontSize: 25
   },
 
   inputNormal: {
@@ -337,6 +391,11 @@ export default StyleSheet.create({
     marginHorizontal: 42,
     marginVertical: 22
   },
+
+  ContainerPadding42_26:{
+    marginHorizontal: 42,
+    marginVertical: 26
+  },
   //DrawingOnPadPage
   viewCenterRange236_131: {
     flex: 0,
@@ -344,9 +403,83 @@ export default StyleSheet.create({
     textAlign: 'left',
     marginTop: 42,
     height:150,
-    width:'100%',
+    width:236,
     borderColor:'#bdc3c7',
     borderWidth:1,
     borderRadius:3
   },
+  viewCenterRange287_174: {
+    flex: 0,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: 25,
+    width: 287,
+    height: 174,
+  },
+
+  captureBtn135_40:{
+    alignSelf: 'center',
+    width: 135,
+    height: 40,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    marginTop: 29,
+    borderColor: '#FF5722',
+    borderWidth:1
+  },
+
+  //CameraPhotoAdjustPage
+  greenLineView:{
+    flex: 0,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width:245,
+    height:3,
+    borderWidth:2,
+    borderColor:'#149100',
+    marginBottom:80
+  },
+
+  takePhotoButtonView:{
+    flex: 0,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+
+  capturedCameraImage:{
+    width: 280,
+    height: 200,
+    alignSelf: 'center'
+  },
+
+  middleAdjustView:{
+    flexDirection: 'row',
+    height: 30,
+    flex: 0,
+    marginTop: 30,
+    justifyContent: 'space-between'
+  },
+
+  middleAdjustText:{
+    paddingRight: 30,
+    color: '#0048A7'
+  },
+
+  middleBrightnessText:{
+    paddingHorizontal: 15,
+    color: '#0048A7'
+  },
+
+  adjustControlIcon:{
+    color: '#0048A7',
+    fontSize: 20,
+    paddingRight: 15
+  },
+
+  paddingLeft25Top3:{
+    paddingLeft:25,
+    paddingTop:3
+  }
+
+
 });

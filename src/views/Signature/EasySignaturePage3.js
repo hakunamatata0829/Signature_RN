@@ -1,11 +1,8 @@
 import React from "react";
-import { View, Image, TouchableOpacity, StyleSheet, TouchableHighlight } from "react-native";
-import { Banner } from "react-native-paper";
-import { ButtonAction } from "@themes";
+import { View, TouchableOpacity } from "react-native";
 import { withNamespaces } from "react-i18next";
-import { Container, List, ListItem, Text, Left, Body, Right, Button, Icon } from 'native-base';
+import { Text, Icon } from 'native-base';
 import Styles from '../../themes/styles';
-
 
 class EasySignaturePage3 extends React.Component {
   state = {
@@ -23,8 +20,8 @@ class EasySignaturePage3 extends React.Component {
       />
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Icon name={'menu'} style={{ color: '#fff', paddingLeft: 18 }} size={25} />
+        <TouchableOpacity onPress={() => navigation.navigate('EasySignatureSelectPage')}>
+          <Icon name={'menu'} style={Styles.headerLeftIcon}  />
         </TouchableOpacity>
       ),
     };
@@ -37,7 +34,7 @@ class EasySignaturePage3 extends React.Component {
   render() {
     const { t } = this.props;
     return (
-      <View style={{ width: '100%', height: '100%' }}>
+      <View style={Styles.fullView}>
         <View style={Styles.blueBorderedView}>
           <Text style={Styles.textMedium}>
             Easy Signature{'\n'}
@@ -54,7 +51,7 @@ class EasySignaturePage3 extends React.Component {
         <View>
           <View style={{ alignItems: 'center', marginTop:30 }} >
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("CameraPage")} >
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("EasySignatureSelectPage")} >
               <View style={Styles.viewCenterRange144} >
 
                 <Icon type={'Entypo'} name={'plus'}

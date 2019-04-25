@@ -1,16 +1,18 @@
 import React from "react";
-import { View, Image, TouchableOpacity, StyleSheet, TouchableHighlight } from "react-native";
-import { Banner } from "react-native-paper";
-import { ButtonAction } from "@themes";
+import { View, Image, TouchableOpacity } from "react-native";
 import { withNamespaces } from "react-i18next";
-import { Container, List, ListItem, Text, Left, Body, Right, Button, Icon } from 'native-base';
+import { Text, Button, Icon } from 'native-base';
 import Styles from '../../themes/styles';
 
+class DrawingOnPadPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      drawSignImage: "",
+    }
 
-class EasySignaturePage3 extends React.Component {
-  state = {
-    visible: true,
-  };
+  }
+
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: "Signature",
@@ -36,64 +38,43 @@ class EasySignaturePage3 extends React.Component {
 
   render() {
     const { t } = this.props;
+    var signImage = "file://data" + this.props.navigation.getParam("drawSignImage") + '?' + new Date();
     return (
-      <View style={{ width: '100%', height: '100%' }}>
+      <View style={Styles.fullView}>
         <Text style={Styles.blueTopTitle}>
           Drawing on a pad
         </Text>
         <View>
           <View style={{ alignItems: 'center', paddingHorizontal:42 }} >
             <View style={Styles.viewCenterRange236_131} >
-
+              <Image
+                style={{width:200,height:130}}
+                source={{uri:signImage}}
+              />
             </View>
 
             <Button
               onPress={() => this.props.navigation.navigate("DrawingSignPage")}
-              style={{
-                alignSelf: 'center',
-                width: 135,
-                height: 40,
-                backgroundColor: '#fff',
-                justifyContent: 'center',
-                marginTop: 29,
-                borderColor: '#FF5722',
-                borderWidth:1
-
-              }}>
-              <Text style={{ fontFamily: 'Roboto', fontSize: 11, color: '#FF5722', fontWeight: '500' }}>
+              style={Styles.captureBtn135_40}>
+              <Text style={Styles.captureTxt}>
                 Capture Name
                 </Text>
             </Button>
 
             <Button
               onPress={() => this.props.navigation.navigate("DrawingSignPage")}
-              style={{
-                alignSelf: 'center',
-                width: 135,
-                height: 40,
-                backgroundColor: '#fff',
-                justifyContent: 'center',
-                marginTop: 29,
-                borderColor: '#FF5722',
-                borderWidth:1
-
-              }}>
-              <Text style={{ fontFamily: 'Roboto', fontSize: 11, color: '#FF5722', fontWeight: '500' }}>
+              style={Styles.captureBtn135_40}>
+              <Text style={Styles.captureTxt}>
                 Capture Initials
-                </Text>
+              </Text>
             </Button>
           </View>
 
         </View>
         <Button
-          onPress={() => this.props.navigation.navigate("UploadSignaturePage")}
-          style={{
-            alignSelf: 'flex-end',
-            width: 96, height: 40,
-            backgroundColor: '#FF5722',
-            marginTop: 65, marginRight: 20, marginBottom: 23
-          }}>
-          <Text style={{ fontFamily: 'Roboto', fontSize: 14, letterSpacing: 0.25, paddingLeft: 30 }}>
+          onPress={() => this.props.navigation.navigate("EasySignatureSelectPage")}
+          style={Styles.saveBtn96}>
+          <Text style={Styles.txtOrangeSave}>
             SAVE
               </Text>
         </Button>
@@ -101,4 +82,4 @@ class EasySignaturePage3 extends React.Component {
     );
   }
 }
-export default withNamespaces()(EasySignaturePage3);
+export default withNamespaces()(DrawingOnPadPage);

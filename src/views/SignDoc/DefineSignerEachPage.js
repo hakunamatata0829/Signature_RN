@@ -8,7 +8,7 @@ import { withNamespaces } from "react-i18next";
 class AccountPage extends React.Component {
   constructor(props) {
     super(props);
-    this. state = {
+    this.state = {
       visible: true,
       selected: undefined,
       selected2: 'key1',

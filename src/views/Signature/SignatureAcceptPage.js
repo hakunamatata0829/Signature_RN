@@ -1,13 +1,11 @@
 import React from "react";
-import { View, Image, TouchableOpacity, StyleSheet, TouchableHighlight } from "react-native";
-import { Banner } from "react-native-paper";
-import { ButtonAction } from "@themes";
+import { View, TouchableOpacity } from "react-native";
 import { withNamespaces } from "react-i18next";
-import { Container, List, ListItem, Text, Left, Body, Right, Button, Icon } from 'native-base';
+import { Text, Icon } from 'native-base';
 import Styles from '../../themes/styles';
 
 
-class EasySignaturePage3 extends React.Component {
+class SignatureAcceptPage extends React.Component {
   state = {
     visible: true,
   };
@@ -23,8 +21,8 @@ class EasySignaturePage3 extends React.Component {
       />
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Icon name={'menu'} style={{ color: '#fff', paddingLeft: 18 }} size={25} />
+        <TouchableOpacity onPress={() => navigation.navigate('EasySignatureSelectPage')}>
+          <Icon name={'menu'} style={Styles.headerLeftIcon} size={25} />
         </TouchableOpacity>
       ),
     };
@@ -37,7 +35,7 @@ class EasySignaturePage3 extends React.Component {
   render() {
     const { t } = this.props;
     return (
-      <View style={{ width: '100%', height: '100%' }}>
+      <View style={Styles.fullView}>
         <View style={Styles.blueBorderedView}>
           <Text style={Styles.textMedium}>
             Easy Signature{'\n'}
@@ -54,7 +52,7 @@ class EasySignaturePage3 extends React.Component {
 
         <View style={Styles.blueBorderedView}>
             <View  style={Styles.viewBetweenSpace} >
-              <View style={{paddingLeft:25, paddingTop:3}}>
+              <View style={Styles.paddingLeft25Top3}>
                 <Text style={Styles.textMedium}>
                   <Icon type={'AntDesign'} name={'earth'}
                     style={Styles.iconEarth}
@@ -63,20 +61,16 @@ class EasySignaturePage3 extends React.Component {
                 </Text>
               </View>
               <View>
-                <Icon type={'MaterialCommunityIcons'} name={'check-decagram'}
-                        style={{color: '#0048A7', fontSize: 25 }}/>
+                <Icon type={'MaterialCommunityIcons'} name={'check-decagram'} style={Styles.iconBlue25}/>
               </View>
             </View>
 
           {/* check-decagram , certificate*/}
-          <TouchableOpacity onPress={this.openPopup}
-          style={Styles.viewBetweenSpace}>
+          <TouchableOpacity onPress={this.openPopup} style={Styles.viewBetweenSpace}>
               <View>
                 <Text style={Styles.txtGreen}>
                   Expiration Date: 25 March 2019
-                  <Icon type={'AntDesign'} name={'check'}
-                  style={{color: '#149100',fontSize: 15,}}
-                  />
+                  <Icon type={'AntDesign'} name={'check'} style={Styles.iconGreen} />
                 </Text>
               </View>
             <View style={Styles.pencilView} >
@@ -91,4 +85,4 @@ class EasySignaturePage3 extends React.Component {
     );
   }
 }
-export default withNamespaces()(EasySignaturePage3);
+export default withNamespaces()(SignatureAcceptPage);

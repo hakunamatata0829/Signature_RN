@@ -1,13 +1,11 @@
 import React from "react";
-import { View, Image, TouchableOpacity, StyleSheet, TouchableHighlight } from "react-native";
-import { Banner } from "react-native-paper";
-import { ButtonAction } from "@themes";
+import { View, TouchableOpacity } from "react-native";
 import { withNamespaces } from "react-i18next";
-import { Container, List, ListItem, Text, Left, Body, Right, Button, Icon } from 'native-base';
+import { Text, Button, Icon } from 'native-base';
 import Styles from '../../themes/styles';
 
 
-class EasySignaturePage3 extends React.Component {
+class UploadSignaturePage extends React.Component {
   state = {
     visible: true,
   };
@@ -24,7 +22,7 @@ class EasySignaturePage3 extends React.Component {
       ),
       headerLeft: (
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Icon name={'menu'} style={{ color: '#fff', paddingLeft: 18 }} size={25} />
+          <Icon name={'menu'} style={Styles.headerLeftIcon} size={25} />
         </TouchableOpacity>
       ),
     };
@@ -37,12 +35,12 @@ class EasySignaturePage3 extends React.Component {
   render() {
     const { t } = this.props;
     return (
-      <View style={{ width: '100%', height: '100%' }}>
+      <View style={Styles.fullView}>
         <Text style={Styles.blueTopTitle}>
           Upload a signature file
         </Text>
         <View>
-          <View style={{ alignItems: 'center'}} >
+          <View style={{ alignItems: 'center' }} >
             <View style={Styles.viewCenterRange116_23} >
               <Text style={Styles.labelTextSize11}>
                 Name
@@ -67,7 +65,7 @@ class EasySignaturePage3 extends React.Component {
 
               <View style={Styles.viewCenterRange116} >
 
-              <Icon type={'MaterialCommunityIcons'} name={'cloud-upload'}
+                <Icon type={'MaterialCommunityIcons'} name={'cloud-upload'}
                   style={Styles.iconBlueRound}
                 />
               </View>
@@ -76,17 +74,14 @@ class EasySignaturePage3 extends React.Component {
 
         </View>
         <Button
-              onPress={() => this.props.navigation.navigate("CertulIdScanPage")}
-              style={{alignSelf: 'flex-end',
-                      width:96, height:40,
-                      backgroundColor:'#FF5722',
-                      marginTop:111, marginRight:20,marginBottom:23}}>
-              <Text style={{fontFamily: 'Roboto',fontSize: 14,letterSpacing: 0.25, paddingLeft:30 }}>
-                SAVE
+          onPress={() => this.props.navigation.navigate("CertulIdScanPage")}
+          style={Styles.saveBtn96}>
+          <Text style={Styles.txtOrangeSave}>
+            SAVE
               </Text>
-          </Button>
+        </Button>
       </View>
     );
   }
 }
-export default withNamespaces()(EasySignaturePage3);
+export default withNamespaces()(UploadSignaturePage);

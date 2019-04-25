@@ -7,7 +7,7 @@ import { Container, List, ListItem, Text, Left, Body, Right, Button, Icon } from
 import Styles from '../../themes/styles';
 
 
-class SecurityOptionPage extends React.Component {
+class CertulIdScanPage extends React.Component {
   state = {
     visible: true,
   };
@@ -32,7 +32,7 @@ class SecurityOptionPage extends React.Component {
   render() {
     const { t } = this.props;
     return (
-    <View style={{ width: '100%', height: '100%' }}>
+    <View style={Styles.fullView}>
       <Banner visible={this.state.visible}
         actions={
           [{
@@ -67,4 +67,4 @@ class SecurityOptionPage extends React.Component {
     );
   }
 }
-export default withNamespaces()(SecurityOptionPage);
+export default withNamespaces()(CertulIdScanPage);

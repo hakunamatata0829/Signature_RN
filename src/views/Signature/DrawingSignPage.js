@@ -5,19 +5,48 @@
 
 var React = require('react');
 var ReactNative = require('react-native');
-
 var {Component} = React;
 
 var {
     AppRegistry,
     StyleSheet,
-    Text,
-    View, TouchableHighlight
+    View, TouchableHighlight,
+    TouchableOpacity
 } = ReactNative;
 
+import { Container, List, ListItem, Text, Left, Body, Right, Button, Icon } from 'native-base';
 import SignatureCapture from 'react-native-signature-capture';
+import Styles from '../../themes/styles';
 
-export default class RNSignatureExample extends Component {
+export default class DrawingSignPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      drawSignImagePath: "",
+    }
+
+    this._onSaveEvent = this._onSaveEvent.bind(this)
+  }
+
+  static navigationOptions = ({ navigation }) => {
+    const { params = {} } = navigation.state;
+    return {
+      headerTitle: "Signature",
+      headerStyle: Styles.headerStyle,
+      headerTitleStyle: Styles.headerTitleStyle,
+      headerTintColor: '#fff',
+      headerRight: (<
+        Icon name={'notifications'}
+        style={Styles.headerRightIcon}
+      />
+      ),
+      headerLeft: (
+        <TouchableOpacity onPress={() => navigation.navigate("DrawingOnPadPage", { drawSignImage: params.drawSignImage })}>
+          <Icon type={'Ionicons'} name={'ios-arrow-back'} style={{ color: '#fff', paddingLeft: 18 }} size={25} />
+        </TouchableOpacity>
+      ),
+    };
+  };
     render() {
         return (
             <View style={{ flex: 1, flexDirection: "column" }}>
@@ -27,7 +56,7 @@ export default class RNSignatureExample extends Component {
                     ref="sign"
                     onSaveEvent={this._onSaveEvent}
                     onDragEvent={this._onDragEvent}
-                    saveImageFileInExtStorage={false}
+                    saveImageFileInExtStorage={true}
                     showNativeButtons={false}
                     showTitleLabel={false}
                     viewMode={"portrait"}/>
@@ -50,7 +79,8 @@ export default class RNSignatureExample extends Component {
     }
 
     saveSign() {
-       var image =  this.refs["sign"].saveImage();
+        this.refs["sign"].saveImage();
+        this.setPath('ss');
     }
 
     resetSign() {
@@ -61,10 +91,33 @@ export default class RNSignatureExample extends Component {
         //result.encoded - for the base64 encoded png
         //result.pathName - for the file path name
         console.log(result);
+        this.setState({
+          drawSignImagePath: result.pathName,
+        });
+        this.props.navigation.setParams({
+          drawSignImage: result.pathName,
+        });
     }
     _onDragEvent() {
          // This callback will be called when the user enters signature
         console.log("dragged");
+    }
+
+    componentDidMount(){
+      this.props.navigation.setParams({
+        drawSignImage: this.state.drawSignImagePath,
+      });
+    }
+
+
+    setPath = (path) =>{
+      this.setState({
+        drawSignImagePath: path,
+      });
+      this.props.navigation.setParams({
+        drawSignImage: path,
+      });
+
     }
 }
 
@@ -81,4 +134,4 @@ const styles = StyleSheet.create({
     }
 });
 
-AppRegistry.registerComponent('RNSignatureExample', () => RNSignatureExample);
+AppRegistry.registerComponent('DrawingSignPage', () => DrawingSignPage);

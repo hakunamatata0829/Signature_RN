@@ -1,9 +1,8 @@
 import React from "react";
-import { View, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { Banner } from "react-native-paper";
-import { ButtonAction } from "@themes";
 import { withNamespaces } from "react-i18next";
-import { Container, List, ListItem, Text, Left, Body, Right, Button, Icon } from 'native-base';
+import { Text, Icon } from 'native-base';
 import Styles from '../../themes/styles';
 
 
@@ -32,7 +31,7 @@ class SecurityOptionPage extends React.Component {
   render() {
     const { t } = this.props;
     return (
-    <View style={{ width: '100%', height: '100%' }}>
+    <View style={Styles.fullView}>
       <Banner visible={this.state.visible}
         actions={
           [{
