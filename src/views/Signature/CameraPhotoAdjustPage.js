@@ -3,14 +3,18 @@ import { View, Image, TouchableOpacity, ScrollView } from "react-native";
 import { withNamespaces } from "react-i18next";
 import { Text, Button, Icon } from 'native-base';
 import Styles from '../../themes/styles';
+import ImagePicker from 'react-native-image-crop-picker';
 
 class CameraPhotoAdjustPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: true,
-      percentContrast: 50
+      percentContrast: 50,
+      cropImgPath:'',
+      imagePath:''
     };
+    this.croppingImage = this.croppingImage.bind(this);
   }
   upContrast() {
     if (this.state.percentContrast < 100) {
@@ -25,6 +29,24 @@ class CameraPhotoAdjustPage extends React.Component {
         percentContrast: this.state.percentContrast - 1
       });
     }
+  }
+
+
+
+  croppingImage(img) {
+    ImagePicker.openCropper({
+      path: img,
+      width: 300,
+      height: 200
+    }).then(image => {
+      console.log(image);
+      this.setState({cropImgPath:image.path})
+    });
+  }
+
+  componentDidMount(){
+    this.setState({imagePath:this.props.navigation.getParam("captureImage")});
+    this.croppingImage(this.props.navigation.getParam("captureImage"))
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -48,16 +70,22 @@ class CameraPhotoAdjustPage extends React.Component {
 
   render() {
     const { t } = this.props;
-    var imagePath = this.props.navigation.getParam("captureImage");
+    console.log("propsvalue_; ",this.props.navigation.getParam("captureImage"))
+
+    //
+
     return (
+
       <ScrollView style={{ width: '100%' }}>
         <Text style={Styles.blueTopTitle}>
           Capture using a camera
         </Text>
         <View>
+
           <View style={{ alignItems: 'center' }} >
             <View style={Styles.viewCenterRange287_174} >
-              <Image source={{ uri: imagePath }}
+
+              <Image source={{ uri: this.state.imagePath }}
                 style={Styles.capturedCameraImage} />
             </View>
 
@@ -78,7 +106,7 @@ class CameraPhotoAdjustPage extends React.Component {
 
             <View style={Styles.viewCenterRange287_174} >
 
-              <Image source={{ uri: imagePath }}
+              <Image source={{ uri: this.state.cropImgPath }}
                 style={Styles.capturedCameraImage} />
             </View>
 
