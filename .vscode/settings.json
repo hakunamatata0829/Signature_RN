@@ -8,5 +8,12 @@
     "@services": "${workspaceRoot}/src/services",
     "@themes": "${workspaceRoot}/src/themes",
     "@views": "${workspaceRoot}/src/views",
+  },
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
   }
 }

@@ -29,11 +29,22 @@ import CertulIdScanPage from "@views/Signature/CertulIdScanPage";
 import CertulFormPage from "@views/Signature/CertulFormPage";
 import SignatureAcceptPage from "@views/Signature/SignatureAcceptPage";
 
+//FlipDoc
+import FlipDocAccountPage from "@views/FlipDoc/AccountPage";
+import FlipDocTemplatePage from "@views/FlipDoc/TemplatePage";
+import FlipDocUploadFilePage from "@views/FlipDoc/UploadFilePage";
+import FlipDocUploadFilePage2 from "@views/FlipDoc/UploadFilePage2";
+import FlipDocPersonalFlowPage from "@views/FlipDoc/PersonalFlowPage";
+import FlipDocBusinessFlowPage from "@views/FlipDoc/BusinessFlowPage";
+import FlipDocContratoPdfPage from "@views/FlipDoc/ContratoPdfPage";
+import FlipDocContratoPdfEditPage from "@views/FlipDoc/ContratoPdfEditPage";
 
 const StartNavigator = createStackNavigator({
   Home: { screen: Home },
   Profile: { screen: Profile },
   Login: { screen: Login },
+
+  //SignDoc
   AccountPage: { screen: AccountPage },
   TemplatePage: { screen: TemplatePage },
   UploadFilePage: { screen: UploadFilePage },
@@ -45,6 +56,7 @@ const StartNavigator = createStackNavigator({
   DefineSingerPage: { screen: DefineSingerPage },
   DefineSignerEachPage: { screen: DefineSignerEachPage },
 
+  //Signature
   SecurityOptionPage: { screen: SecurityOptionPage },
   EasySignatureSelectPage: { screen: EasySignatureSelectPage },
   EasySignaturePage2: { screen: EasySignaturePage2 },
@@ -58,6 +70,16 @@ const StartNavigator = createStackNavigator({
   CertulIdScanPage: { screen: CertulIdScanPage },
   CertulFormPage: { screen: CertulFormPage },
   SignatureAcceptPage: { screen: SignatureAcceptPage },
+
+  //FlipDoc
+  FlipDocAccountPage: { screen: FlipDocAccountPage },
+  FlipDocTemplatePage: { screen: FlipDocTemplatePage },
+  FlipDocUploadFilePage: { screen: FlipDocUploadFilePage },
+  FlipDocUploadFilePage2: { screen: FlipDocUploadFilePage2 },
+  FlipDocPersonalFlowPage: { screen: FlipDocPersonalFlowPage },
+  FlipDocBusinessFlowPage: { screen: FlipDocBusinessFlowPage },
+  FlipDocContratoPdfPage: { screen: FlipDocContratoPdfPage },
+  FlipDocContratoPdfEditPage: { screen: FlipDocContratoPdfEditPage },
 
 
 });

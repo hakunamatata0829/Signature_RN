@@ -54,15 +54,15 @@ class Home extends React.Component {
         >
           Certul Step
         </Button>
-        {/* <Button
+        <Button
           icon="folder"
           mode="contained"
           dark={true}
           style={{color:'#fff',backgroundColor:'#2372D8', width:140, height:40, marginTop:17}}
-          onPress={() => this.props.navigation.navigate("CameraPage")}
+          onPress={() => this.props.navigation.navigate("FlipDocContratoPdfPage")}
         >
           TEST
-        </Button> */}
+        </Button>
       </View>
     );
   }

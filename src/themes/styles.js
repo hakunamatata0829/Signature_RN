@@ -7,6 +7,10 @@ export default StyleSheet.create({
     backgroundColor: '#2372D8'
   },
 
+  headerGrayStyle: {
+    backgroundColor: '#DADADA'
+  },
+
   headerTitleStyle: {
     fontFamily: 'Roboto',
     fontStyle: 'normal',
@@ -479,7 +483,42 @@ export default StyleSheet.create({
   paddingLeft25Top3:{
     paddingLeft:25,
     paddingTop:3
+  },
+
+  //PersonalFlow
+  blueTopTitle20: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 17,
+    lineHeight: 23,
+    letterSpacing: 0.25,
+    color: '#0048A7',
+    marginTop: 20,
+    marginBottom: 23,
+  },
+
+  blueTopTitle90: {
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 17,
+    lineHeight: 23,
+    letterSpacing: 0.25,
+    color: '#0048A7',
+    marginTop: 90,
+    marginBottom: 23,
+  },
+  iconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    width: 120
+  },
+
+  headerLeftIconContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    width: 120,
+    marginLeft:20
   }
-
-
 });
